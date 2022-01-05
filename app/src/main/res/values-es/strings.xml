@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lector de QR &amp; códigos de barras</string>
+    <string name="app_name">Escáner &amp;y creador de códigos de barras QR</string>
 
     <!--Shortcuts-->
     <string name="shortcut_scan_from_camera">Escanear</string>

@@ -1,2 +1,2 @@
-rootProject.name='BarcodeScanner'
+rootProject.name='QrandBarcode'
 include ':app'

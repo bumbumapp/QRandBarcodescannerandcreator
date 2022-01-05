@@ -5,15 +5,15 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.barcodescanner"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 11
-        versionName "1.9"
+        applicationId "com.qrbarcode.creator"
+        minSdkVersion 28
+        targetSdkVersion 30
+        versionCode 9
+        versionName "9.9"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary  true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -44,16 +44,7 @@ android {
         }
     }
 
-    flavorDimensions "market"
-    productFlavors {
-        appGallery {}
-        googlePlay {
-            applicationId "org.barcodescanner"
-        }
-        fDroid {
-            buildConfigField "boolean", "ERROR_REPORTS_ENABLED_BY_DEFAULT", "false"
-        }
-    }
+
 
     sentry {
         autoProguardConfig true
@@ -113,4 +104,7 @@ dependencies {
 
     // Sentry
     implementation 'io.sentry:sentry-android:2.3.1'
+
+    //ads
+    implementation 'com.google.android.gms:play-services-ads:20.5.0'
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QR &amp; Barcode Scanner</string>
+    <string name="app_name">QR &amp; Barcode scanner and creator</string>
 
     <!--Shortcuts-->
     <string name="shortcut_scan_from_camera">Scan</string>
@@ -201,7 +201,6 @@
     <!--Settings fragment-->
     <string name="fragment_settings_title">Settings</string>
     <string name="fragment_settings_appearance_settings">Appearance</string>
-    <string name="fragment_settings_theme">Theme</string>
     <string name="fragment_settings_inverse_barcode_colors_in_dark_theme">Inverse code colors in dark theme</string>
     <string name="fragment_settings_inverse_barcode_colors_in_dark_theme_hint">Show codes with white content on dark background</string>
     <string name="fragment_settings_scanner_settings">Scanner</string>
@@ -230,14 +229,8 @@
     <string name="fragment_settings_advanced_settings">Advanced</string>
     <string name="fragment_settings_choose_search_engines">Search Engines</string>
     <string name="fragment_settings_choose_search_engines_hint">Choose a search engine for web searches</string>
-    <string name="fragment_settings_error_reports">Error reports</string>
-    <string name="fragment_settings_enable_error_reports">Enable error reports</string>
-    <string name="fragment_settings_enable_error_reports_hint">Help us to fix bugs</string>
-    <string name="fragment_settings_about">About</string>
-    <string name="fragment_settings_check_updates">Check for updates</string>
-    <string name="fragment_settings_permissions">Permissions</string>
-    <string name="fragment_settings_source_code">Source code</string>
-    <string name="fragment_settings_app_version">App version</string>
+
+
 
     <!--Choose theme activity-->
     <string name="activity_choose_theme_title">Theme</string>

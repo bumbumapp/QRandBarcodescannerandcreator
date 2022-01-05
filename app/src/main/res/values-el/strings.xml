@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Σαρωτής QR &amp; Γραμμωτού Κώδικα</string>
+    <string name="app_name">Σαρωτής &amp; και δημιουργός γραμμωτού κώδικα QR</string>
 
     <!--Shortcuts-->
     <string name="shortcut_scan_from_camera">Σάρωση</string>
