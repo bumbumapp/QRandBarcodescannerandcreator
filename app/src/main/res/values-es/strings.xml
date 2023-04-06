@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Escáner &amp;y creador de códigos de barras QR</string>
+    <string name="app_name">Qr-kodo kaj strekkoda skanilo</string>
 
     <!--Shortcuts-->
     <string name="shortcut_scan_from_camera">Escanear</string>

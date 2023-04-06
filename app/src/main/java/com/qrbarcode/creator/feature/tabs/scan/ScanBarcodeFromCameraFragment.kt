@@ -5,7 +5,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,10 +23,10 @@ import com.qrbarcode.creator.model.Barcode
 import com.qrbarcode.creator.usecase.SupportedBarcodeFormats
 import com.qrbarcode.creator.usecase.save
 import com.google.android.gms.ads.*
-import com.google.android.gms.ads.interstitial.InterstitialAd
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.zxing.Result
 import com.google.zxing.ResultMetadataType
+import com.qrbarcode.creator.AdsLoader
+import com.qrbarcode.creator.Globals.TIMER_FINISHED
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -53,8 +52,7 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
     private lateinit var codeScanner: CodeScanner
     private var toast: Toast? = null
     private var lastResult: Barcode? = null
-    private var mInterstitialAd: InterstitialAd? = null
-    private final var TAG = "TAG"
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_scan_barcode_from_camera, container, false)
@@ -336,46 +334,16 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
     }
 
     private fun navigateToBarcodeScreen(barcode: Barcode) {
+        TIMER_FINISHED=true
+        AdsLoader.showAds(requireContext(),barcodeStart(barcode))
+    }
 
-
-        if (mInterstitialAd != null) {
-            mInterstitialAd?.show(requireActivity())
-        } else {
-            BarcodeActivity.start(requireActivity(), barcode)
-        }
-       mInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
-            override fun onAdDismissedFullScreenContent() {
-                BarcodeActivity.start(requireActivity(), barcode)
-            }
-
-            override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
-                Log.d(TAG, "Ad failed to show.")
-            }
-
-            override fun onAdShowedFullScreenContent() {
-                Log.d(TAG, "Ad showed fullscreen content.")
-                mInterstitialAd = null
-            }
-        }
-
+    private fun barcodeStart(barcode:Barcode){
+        BarcodeActivity.start(requireActivity(), barcode)
     }
    private fun displayInterstitial() {
-
-        var adRequest = AdRequest.Builder().build()
-
-        InterstitialAd.load(requireContext(),"ca-app-pub-8444865753152507/7022559022", adRequest, object : InterstitialAdLoadCallback() {
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                Log.d(TAG, adError?.message)
-                mInterstitialAd = null
-            }
-
-            override fun onAdLoaded(interstitialAd: InterstitialAd?) {
-                Log.d(TAG, "Ad was loaded.")
-                mInterstitialAd = interstitialAd
-            }
-        })
-
-    }
+       AdsLoader.displayInterstitial(requireContext())
+   }
 
 
     private fun finishWithResult(result: Result) {

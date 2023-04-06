@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">二維碼 &amp; 條碼掃描器和創建器</string>
+    <string name="app_name">二維碼和條形碼掃描儀</string>
 
     <!--Shortcuts-->
     <string name="shortcut_scan_from_camera">掃描</string>

@@ -8,6 +8,7 @@
         <item name="android:textColor">@color/default_text_color</item>
         <item name="android:textColorSecondary">@color/text_color_secondary</item>
         <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/navigation_bar_color</item>
         <item name="android:actionOverflowButtonStyle">@style/ToolbarMenuButtonStyle</item>
     </style>

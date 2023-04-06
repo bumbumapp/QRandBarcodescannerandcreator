@@ -9,6 +9,7 @@ import com.qrbarcode.creator.feature.BaseActivity
 import com.qrbarcode.creator.feature.tabs.create.CreateBarcodeActivity
 import com.qrbarcode.creator.model.schema.BarcodeSchema
 import com.google.zxing.BarcodeFormat
+import com.qrbarcode.creator.AdsLoader
 import kotlinx.android.synthetic.main.activity_create_qr_code_all.*
 
 class CreateQrCodeAllActivity : BaseActivity() {
@@ -27,6 +28,7 @@ class CreateQrCodeAllActivity : BaseActivity() {
         supportEdgeToEdge()
         handleToolbarBackClicked()
         handleButtonsClicked()
+        AdsLoader.displayInterstitial(this)
     }
 
     private fun supportEdgeToEdge() {
@@ -40,20 +42,23 @@ class CreateQrCodeAllActivity : BaseActivity() {
     }
 
     private fun handleButtonsClicked() {
-        button_text.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.OTHER) }
-        button_url.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.URL) }
-        button_wifi.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.WIFI) }
-        button_location.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.GEO) }
-        button_otp.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.OTP_AUTH) }
-        button_contact_vcard.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.VCARD) }
-        button_contact_mecard.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.MECARD) }
-        button_event.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.VEVENT) }
-        button_phone.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.PHONE) }
-        button_email.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.EMAIL) }
-        button_sms.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.SMS) }
-        button_mms.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.MMS) }
-        button_cryptocurrency.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.CRYPTOCURRENCY) }
-        button_bookmark.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.BOOKMARK) }
-        button_app.setOnClickListener { CreateBarcodeActivity.start(this, BarcodeFormat.QR_CODE, BarcodeSchema.APP) }
+        button_text.setOnClickListener { AdsLoader.showAds(this,startBarcode(BarcodeSchema.OTHER)) }
+        button_url.setOnClickListener { AdsLoader.showAds(this,startBarcode(BarcodeSchema.URL)) }
+        button_wifi.setOnClickListener {  AdsLoader.showAds(this,startBarcode(BarcodeSchema.WIFI)) }
+        button_location.setOnClickListener { AdsLoader.showAds(this,startBarcode(BarcodeSchema.GEO)) }
+        button_otp.setOnClickListener {  AdsLoader.showAds(this,startBarcode( BarcodeSchema.OTP_AUTH)) }
+        button_contact_vcard.setOnClickListener {  AdsLoader.showAds(this,startBarcode( BarcodeSchema.VCARD))}
+        button_contact_mecard.setOnClickListener {  AdsLoader.showAds(this,startBarcode( BarcodeSchema.MECARD)) }
+        button_event.setOnClickListener {  AdsLoader.showAds(this,startBarcode(BarcodeSchema.VEVENT)) }
+        button_phone.setOnClickListener {  AdsLoader.showAds(this,startBarcode(BarcodeSchema.PHONE)) }
+        button_email.setOnClickListener {  AdsLoader.showAds(this,startBarcode(BarcodeSchema.EMAIL)) }
+        button_sms.setOnClickListener {  AdsLoader.showAds(this,startBarcode(BarcodeSchema.SMS)) }
+        button_mms.setOnClickListener {  AdsLoader.showAds(this,startBarcode( BarcodeSchema.MMS)) }
+        button_cryptocurrency.setOnClickListener {  AdsLoader.showAds(this,startBarcode(BarcodeSchema.CRYPTOCURRENCY))}
+        button_bookmark.setOnClickListener {  AdsLoader.showAds(this,startBarcode(BarcodeSchema.BOOKMARK)) }
+        button_app.setOnClickListener {  AdsLoader.showAds(this,startBarcode(BarcodeSchema.APP)) }
+    }
+    private fun startBarcode(string: BarcodeSchema){
+        CreateBarcodeActivity.start(this,BarcodeFormat.QR_CODE,string)
     }
 }

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.paging.PagedList
 import androidx.paging.RxPagedListBuilder
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.qrbarcode.creator.AdsLoader
 import com.qrbarcode.creator.R
 import com.qrbarcode.creator.di.barcodeDatabase
 import com.qrbarcode.creator.extension.orZero
@@ -56,9 +57,14 @@ class BarcodeHistoryListFragment : Fragment(), BarcodeHistoryAdapter.Listener {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         loadHistory()
+        AdsLoader.displayInterstitial(requireContext())
     }
 
     override fun onBarcodeClicked(barcode: Barcode) {
+        AdsLoader.showAds(requireContext(),onBarcodeClick(barcode))
+    }
+
+    private fun onBarcodeClick(barcode: Barcode) {
         BarcodeActivity.start(requireActivity(), barcode)
     }
 

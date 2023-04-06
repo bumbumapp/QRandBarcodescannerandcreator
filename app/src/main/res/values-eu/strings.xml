@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QR &amp;barra-kodeen eskanerra eta sortzailea</string>
+    <string name="app_name">Qr kodea eta barra kode eskanerra</string>
 
     <!--Shortcuts-->
     <string name="shortcut_scan_from_camera">Eskaneatu</string>

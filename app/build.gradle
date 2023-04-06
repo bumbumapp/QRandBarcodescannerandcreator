@@ -1,19 +1,19 @@
-apply plugin: 'io.sentry.android.gradle'
+//apply plugin: 'io.sentry.android.gradle'
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.qrbarcode.creator"
         minSdkVersion 28
-        targetSdkVersion 30
-        versionCode 9
-        versionName "9.9"
+        targetSdkVersion 31
+        versionCode 15
+        versionName "10.9.5"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary  true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -46,10 +46,10 @@ android {
 
 
 
-    sentry {
-        autoProguardConfig true
-        autoUpload true
-    }
+//    sentry {
+//        autoProguardConfig true
+//        autoUpload true
+//    }
 }
 
 dependencies {
@@ -103,7 +103,7 @@ dependencies {
     implementation 'com.github.florent37:singledateandtimepicker:2.2.6'
 
     // Sentry
-    implementation 'io.sentry:sentry-android:2.3.1'
+//    implementation 'io.sentry:sentry-android:3.2.0'
 
     //ads
     implementation 'com.google.android.gms:play-services-ads:20.5.0'

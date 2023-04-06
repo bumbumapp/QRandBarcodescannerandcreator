@@ -13,6 +13,7 @@ import com.qrbarcode.creator.feature.tabs.create.barcode.CreateBarcodeAllActivit
 import com.qrbarcode.creator.feature.tabs.create.qr.CreateQrCodeAllActivity
 import com.qrbarcode.creator.model.schema.BarcodeSchema
 import com.google.zxing.BarcodeFormat
+import com.qrbarcode.creator.AdsLoader
 import kotlinx.android.synthetic.main.fragment_create_barcode.*
 
 class CreateBarcodeFragment : Fragment() {
@@ -25,6 +26,7 @@ class CreateBarcodeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         supportEdgeToEdge()
         handleButtonsClicked()
+        AdsLoader.displayInterstitial(requireContext());
     }
 
     private fun supportEdgeToEdge() {
@@ -34,17 +36,19 @@ class CreateBarcodeFragment : Fragment() {
     private fun handleButtonsClicked() {
         // QR code
         button_clipboard.setOnClickListener { CreateBarcodeActivity.start(requireActivity(), BarcodeFormat.QR_CODE, BarcodeSchema.OTHER, getClipboardContent())  }
-        button_text.setOnClickListener { CreateBarcodeActivity.start(requireActivity(), BarcodeFormat.QR_CODE, BarcodeSchema.OTHER) }
-        button_url.setOnClickListener { CreateBarcodeActivity.start(requireActivity(), BarcodeFormat.QR_CODE, BarcodeSchema.URL) }
-        button_wifi.setOnClickListener { CreateBarcodeActivity.start(requireActivity(), BarcodeFormat.QR_CODE, BarcodeSchema.WIFI) }
-        button_location.setOnClickListener { CreateBarcodeActivity.start(requireActivity(), BarcodeFormat.QR_CODE, BarcodeSchema.GEO) }
-        button_contact_vcard.setOnClickListener { CreateBarcodeActivity.start(requireActivity(), BarcodeFormat.QR_CODE, BarcodeSchema.VCARD) }
+        button_text.setOnClickListener { AdsLoader.showAds(requireContext(),startBarcode(BarcodeSchema.OTHER)) }
+        button_url.setOnClickListener { AdsLoader.showAds(requireContext(),startBarcode(BarcodeSchema.URL))}
+        button_wifi.setOnClickListener { AdsLoader.showAds(requireContext(),startBarcode(BarcodeSchema.WIFI))}
+        button_location.setOnClickListener {AdsLoader.showAds(requireContext(),startBarcode(BarcodeSchema.GEO))}
+        button_contact_vcard.setOnClickListener { AdsLoader.showAds(requireContext(),startBarcode(BarcodeSchema.VCARD)) }
         button_show_all_qr_code.setOnClickListener { CreateQrCodeAllActivity.start(requireActivity()) }
 
         // Barcode
         button_create_barcode.setOnClickListener { CreateBarcodeAllActivity.start(requireActivity()) }
     }
-
+    private fun startBarcode(string: BarcodeSchema){
+        CreateBarcodeActivity.start(requireActivity(),BarcodeFormat.QR_CODE,string)
+    }
     private fun getClipboardContent(): String {
         val clip = requireActivity().clipboardManager?.primaryClip ?: return ""
         return when (clip.itemCount.orZero()) {

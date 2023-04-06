@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QR &amp;сканер штрих-кода и создатель</string>
+    <string name="app_name">Qr-код и сканер штрих-кода</string>
 
     <!--Shortcuts-->
     <string name="shortcut_scan_from_camera">Сканер</string>

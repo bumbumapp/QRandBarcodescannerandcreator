@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QR &amp;Barkod tarayıcı ve yaratıcısı</string>
+    <string name="app_name">Qr kod &amp;bar kod tarayıcı </string>
 
     <!--Shortcuts-->
     <string name="shortcut_scan_from_camera">Tara</string>
