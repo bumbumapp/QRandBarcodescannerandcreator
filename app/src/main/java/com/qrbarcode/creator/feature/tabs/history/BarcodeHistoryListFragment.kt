@@ -61,7 +61,7 @@ class BarcodeHistoryListFragment : Fragment(), BarcodeHistoryAdapter.Listener {
     }
 
     override fun onBarcodeClicked(barcode: Barcode) {
-        AdsLoader.showAds(requireContext(),onBarcodeClick(barcode))
+        AdsLoader.showAds(requireContext()){onBarcodeClick(barcode)}
     }
 
     private fun onBarcodeClick(barcode: Barcode) {

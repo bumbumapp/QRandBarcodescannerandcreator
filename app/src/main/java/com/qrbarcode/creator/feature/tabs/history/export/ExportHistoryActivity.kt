@@ -3,6 +3,7 @@ package com.qrbarcode.creator.feature.tabs.history.export
 import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -28,7 +29,12 @@ class ExportHistoryActivity : BaseActivity() {
 
     companion object {
         private const val REQUEST_PERMISSIONS_CODE = 101
-        private val PERMISSIONS = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        private val PERMISSIONS =  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            arrayOf(Manifest.permission.READ_MEDIA_IMAGES)
+        }
+        else {
+            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        }
 
         fun start(context: Context) {
             val intent = Intent(context, ExportHistoryActivity::class.java)

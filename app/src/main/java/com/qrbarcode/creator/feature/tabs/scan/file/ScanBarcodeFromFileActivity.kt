@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import android.provider.MediaStore
@@ -34,7 +35,13 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
         private const val CHOOSE_FILE_REQUEST_CODE = 12
         private const val CHOOSE_FILE_AGAIN_REQUEST_CODE = 13
         private const val PERMISSIONS_REQUEST_CODE = 14
-        private val PERMISSIONS = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+
+        private val PERMISSIONS = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            arrayOf(Manifest.permission.READ_MEDIA_IMAGES)
+        }
+        else {
+            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
 
         fun start(context: Context) {
             val intent = Intent(context, ScanBarcodeFromFileActivity::class.java)

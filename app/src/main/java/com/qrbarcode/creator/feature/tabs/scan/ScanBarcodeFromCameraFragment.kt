@@ -335,7 +335,7 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
 
     private fun navigateToBarcodeScreen(barcode: Barcode) {
         TIMER_FINISHED=true
-        AdsLoader.showAds(requireContext(),barcodeStart(barcode))
+        AdsLoader.showAds(requireContext()){barcodeStart(barcode)}
     }
 
     private fun barcodeStart(barcode:Barcode){

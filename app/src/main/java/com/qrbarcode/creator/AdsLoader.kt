@@ -10,10 +10,9 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.qrbarcode.creator.Globals.TIMER_FINISHED
-import com.qrbarcode.creator.feature.tabs.history.BarcodeHistoryListFragment
 
 object AdsLoader {
-    private var mInterstitialAd: InterstitialAd? = null
+    var mInterstitialAd: InterstitialAd? = null
     private var TAG = "TAG"
     fun displayInterstitial(context: Context) {
          mInterstitialAd=null
@@ -32,7 +31,7 @@ object AdsLoader {
         })
 
     }
-    fun showAds(context: Context, unit:Unit) {
+    inline fun showAds(context: Context, crossinline unit:() -> Unit) {
         if (TIMER_FINISHED){
             if (mInterstitialAd != null) {
                 mInterstitialAd?.show(context as Activity)
@@ -42,23 +41,23 @@ object AdsLoader {
                         TIMER_FINISHED=false
                         Timers.timer().start()
                         displayInterstitial(context)
-                        return unit
+                        unit()
                     }
                     override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
-                        Log.d(TAG, "Ad failed to show.")
+                        Log.d("TAG", "Ad failed to show.")
                     }
                     override fun onAdShowedFullScreenContent() {
-                        Log.d(TAG, "Ad showed fullscreen content.")
+                        Log.d("TAG", "Ad showed fullscreen content.")
                         mInterstitialAd = null
                     }
                 }
 
             } else {
-                return unit
+                unit()
             }
         }else
         {
-            return unit
+             unit()
         }
 
     }

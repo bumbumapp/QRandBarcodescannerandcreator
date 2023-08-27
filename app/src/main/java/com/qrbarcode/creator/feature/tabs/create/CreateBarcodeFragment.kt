@@ -36,11 +36,11 @@ class CreateBarcodeFragment : Fragment() {
     private fun handleButtonsClicked() {
         // QR code
         button_clipboard.setOnClickListener { CreateBarcodeActivity.start(requireActivity(), BarcodeFormat.QR_CODE, BarcodeSchema.OTHER, getClipboardContent())  }
-        button_text.setOnClickListener { AdsLoader.showAds(requireContext(),startBarcode(BarcodeSchema.OTHER)) }
-        button_url.setOnClickListener { AdsLoader.showAds(requireContext(),startBarcode(BarcodeSchema.URL))}
-        button_wifi.setOnClickListener { AdsLoader.showAds(requireContext(),startBarcode(BarcodeSchema.WIFI))}
-        button_location.setOnClickListener {AdsLoader.showAds(requireContext(),startBarcode(BarcodeSchema.GEO))}
-        button_contact_vcard.setOnClickListener { AdsLoader.showAds(requireContext(),startBarcode(BarcodeSchema.VCARD)) }
+        button_text.setOnClickListener { AdsLoader.showAds(requireContext()){startBarcode(BarcodeSchema.OTHER)} }
+        button_url.setOnClickListener { AdsLoader.showAds(requireContext()){startBarcode(BarcodeSchema.URL)}}
+        button_wifi.setOnClickListener { AdsLoader.showAds(requireContext()){startBarcode(BarcodeSchema.WIFI)}}
+        button_location.setOnClickListener {AdsLoader.showAds(requireContext()){startBarcode(BarcodeSchema.GEO)}}
+        button_contact_vcard.setOnClickListener { AdsLoader.showAds(requireContext()){startBarcode(BarcodeSchema.VCARD)} }
         button_show_all_qr_code.setOnClickListener { CreateQrCodeAllActivity.start(requireActivity()) }
 
         // Barcode
