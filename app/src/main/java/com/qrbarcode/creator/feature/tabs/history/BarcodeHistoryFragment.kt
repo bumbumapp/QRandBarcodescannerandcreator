@@ -15,8 +15,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_barcode_history.*
-
 
 class BarcodeHistoryFragment : Fragment(), DeleteConfirmationDialogFragment.Listener {
     private val disposable = CompositeDisposable()
@@ -80,3 +78,17 @@ class BarcodeHistoryFragment : Fragment(), DeleteConfirmationDialogFragment.List
             .addTo(disposable)
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.app_bar_layout: com.google.android.material.appbar.AppBarLayout get() = findViewById(com.qrbarcode.creator.R.id.app_bar_layout)
+private val androidx.fragment.app.Fragment.app_bar_layout: com.google.android.material.appbar.AppBarLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.app_bar_layout)
+private val android.app.Dialog.app_bar_layout: com.google.android.material.appbar.AppBarLayout get() = findViewById(com.qrbarcode.creator.R.id.app_bar_layout)
+private val android.app.Activity.tab_layout: com.google.android.material.tabs.TabLayout get() = findViewById(com.qrbarcode.creator.R.id.tab_layout)
+private val androidx.fragment.app.Fragment.tab_layout: com.google.android.material.tabs.TabLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.tab_layout)
+private val android.app.Dialog.tab_layout: com.google.android.material.tabs.TabLayout get() = findViewById(com.qrbarcode.creator.R.id.tab_layout)
+private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Activity.view_pager: androidx.viewpager.widget.ViewPager get() = findViewById(com.qrbarcode.creator.R.id.view_pager)
+private val androidx.fragment.app.Fragment.view_pager: androidx.viewpager.widget.ViewPager get() = requireView().findViewById(com.qrbarcode.creator.R.id.view_pager)
+private val android.app.Dialog.view_pager: androidx.viewpager.widget.ViewPager get() = findViewById(com.qrbarcode.creator.R.id.view_pager)

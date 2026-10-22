@@ -10,7 +10,6 @@ import com.qrbarcode.creator.feature.tabs.create.BaseCreateBarcodeFragment
 import com.qrbarcode.creator.model.Contact
 import com.qrbarcode.creator.model.schema.MeCard
 import com.qrbarcode.creator.model.schema.Schema
-import kotlinx.android.synthetic.main.fragment_create_qr_code_mecard.*
 
 class CreateQrCodeMeCardFragment : BaseCreateBarcodeFragment() {
 
@@ -40,3 +39,17 @@ class CreateQrCodeMeCardFragment : BaseCreateBarcodeFragment() {
         edit_text_phone.setText(contact.phone)
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.edit_text_email: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_email)
+private val androidx.fragment.app.Fragment.edit_text_email: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_email)
+private val android.app.Dialog.edit_text_email: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_email)
+private val android.app.Activity.edit_text_first_name: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_first_name)
+private val androidx.fragment.app.Fragment.edit_text_first_name: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_first_name)
+private val android.app.Dialog.edit_text_first_name: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_first_name)
+private val android.app.Activity.edit_text_last_name: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_last_name)
+private val androidx.fragment.app.Fragment.edit_text_last_name: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_last_name)
+private val android.app.Dialog.edit_text_last_name: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_last_name)
+private val android.app.Activity.edit_text_phone: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_phone)
+private val androidx.fragment.app.Fragment.edit_text_phone: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_phone)
+private val android.app.Dialog.edit_text_phone: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_phone)

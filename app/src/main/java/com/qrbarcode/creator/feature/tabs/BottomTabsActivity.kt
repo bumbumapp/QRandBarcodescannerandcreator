@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
+import com.qrbarcode.creator.AdsConsent
+import com.qrbarcode.creator.AdsLoader
+import com.qrbarcode.creator.BannerHelper
 import com.qrbarcode.creator.BuildConfig
 import com.qrbarcode.creator.R
 import com.qrbarcode.creator.extension.applySystemWindowInsets
@@ -15,9 +16,6 @@ import com.qrbarcode.creator.feature.tabs.history.BarcodeHistoryFragment
 import com.qrbarcode.creator.feature.tabs.scan.ScanBarcodeFromCameraFragment
 import com.qrbarcode.creator.feature.tabs.settings.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.qrbarcode.creator.Globals.TIMER_FINISHED
-import com.qrbarcode.creator.Timers
-import kotlinx.android.synthetic.main.activity_bottom_tabs.*
 
 class BottomTabsActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -42,9 +40,11 @@ class BottomTabsActivity : BaseActivity(), BottomNavigationView.OnNavigationItem
     }
 
     private fun loadBannerads() {
-        MobileAds.initialize(this) {}
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
+        // UMP consent first; banner + preloaded interstitial only once ads may be requested.
+        AdsConsent.gather(this) {
+            AdsLoader.displayInterstitial(this)
+            adView.post { BannerHelper.load(this, adView) }
+        }
     }
 
 
@@ -105,3 +105,14 @@ class BottomTabsActivity : BaseActivity(), BottomNavigationView.OnNavigationItem
     }
 
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.adView: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.adView)
+private val androidx.fragment.app.Fragment.adView: android.widget.FrameLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.adView)
+private val android.app.Dialog.adView: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.adView)
+private val android.app.Activity.bottom_navigation_view: com.google.android.material.bottomnavigation.BottomNavigationView get() = findViewById(com.qrbarcode.creator.R.id.bottom_navigation_view)
+private val androidx.fragment.app.Fragment.bottom_navigation_view: com.google.android.material.bottomnavigation.BottomNavigationView get() = requireView().findViewById(com.qrbarcode.creator.R.id.bottom_navigation_view)
+private val android.app.Dialog.bottom_navigation_view: com.google.android.material.bottomnavigation.BottomNavigationView get() = findViewById(com.qrbarcode.creator.R.id.bottom_navigation_view)
+private val android.app.Activity.layout_fragment_container: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.layout_fragment_container)
+private val androidx.fragment.app.Fragment.layout_fragment_container: android.widget.FrameLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.layout_fragment_container)
+private val android.app.Dialog.layout_fragment_container: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.layout_fragment_container)

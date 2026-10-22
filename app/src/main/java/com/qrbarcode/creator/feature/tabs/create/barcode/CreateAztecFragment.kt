@@ -11,7 +11,6 @@ import com.qrbarcode.creator.extension.textString
 import com.qrbarcode.creator.feature.tabs.create.BaseCreateBarcodeFragment
 import com.qrbarcode.creator.model.schema.Other
 import com.qrbarcode.creator.model.schema.Schema
-import kotlinx.android.synthetic.main.fragment_create_aztec.*
 
 class CreateAztecFragment : BaseCreateBarcodeFragment() {
 
@@ -31,3 +30,8 @@ class CreateAztecFragment : BaseCreateBarcodeFragment() {
         return Other(edit_text.textString)
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.edit_text: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text)
+private val androidx.fragment.app.Fragment.edit_text: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text)
+private val android.app.Dialog.edit_text: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text)

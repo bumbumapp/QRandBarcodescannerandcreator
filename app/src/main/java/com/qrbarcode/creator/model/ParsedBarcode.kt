@@ -96,6 +96,7 @@ class ParsedBarcode(barcode: Barcode) {
             BarcodeSchema.OTP_AUTH -> parseOtp()
             BarcodeSchema.NZCOVIDTRACER -> parseNZCovidTracer()
             BarcodeSchema.URL -> parseUrl()
+            else -> Unit
         }
     }
 

@@ -7,7 +7,6 @@ import com.qrbarcode.creator.R
 import com.qrbarcode.creator.di.settings
 import com.qrbarcode.creator.extension.applySystemWindowInsets
 import com.qrbarcode.creator.feature.BaseActivity
-import kotlinx.android.synthetic.main.activity_choose_camera.*
 
 class ChooseCameraActivity : BaseActivity() {
 
@@ -66,3 +65,17 @@ class ChooseCameraActivity : BaseActivity() {
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.button_back_camera: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_back_camera)
+private val androidx.fragment.app.Fragment.button_back_camera: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_back_camera)
+private val android.app.Dialog.button_back_camera: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_back_camera)
+private val android.app.Activity.button_front_camera: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_front_camera)
+private val androidx.fragment.app.Fragment.button_front_camera: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_front_camera)
+private val android.app.Dialog.button_front_camera: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_front_camera)
+private val android.app.Activity.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val androidx.fragment.app.Fragment.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Dialog.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)

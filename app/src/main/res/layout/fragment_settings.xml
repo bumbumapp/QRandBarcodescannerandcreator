@@ -184,6 +184,15 @@
                 app:isSwitchVisible="false"
                 />
             <View style="@style/DelimiterStyle" />
+            <com.qrbarcode.creator.feature.common.view.SettingsButton
+                android:id="@+id/button_privacy_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:text="@string/privacy_options"
+                app:isDelimiterVisible="false"
+                app:isSwitchVisible="false"
+                />
 
 
         </LinearLayout>

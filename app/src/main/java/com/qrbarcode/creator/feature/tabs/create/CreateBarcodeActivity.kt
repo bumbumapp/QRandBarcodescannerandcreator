@@ -30,8 +30,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_create_barcode.*
-
 
 class CreateBarcodeActivity : BaseActivity(), AppAdapter.Listener {
 
@@ -339,3 +337,14 @@ class CreateBarcodeActivity : BaseActivity(), AppAdapter.Listener {
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.container: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.container)
+private val androidx.fragment.app.Fragment.container: android.widget.FrameLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.container)
+private val android.app.Dialog.container: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.container)
+private val android.app.Activity.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val androidx.fragment.app.Fragment.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Dialog.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)

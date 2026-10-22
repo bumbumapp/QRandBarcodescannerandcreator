@@ -9,7 +9,7 @@ import android.widget.FrameLayout
 import com.qrbarcode.creator.R
 import com.qrbarcode.creator.extension.formatOrNull
 import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog
-import kotlinx.android.synthetic.main.layout_date_time_picker_button.view.*
+
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -62,3 +62,7 @@ class DateTimePickerButton : FrameLayout {
         view.text_view_date_time.text = dateFormatter.formatOrNull(dateTime).orEmpty()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.view.View.text_view_date_time: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_date_time)
+private val android.view.View.text_view_hint: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_hint)

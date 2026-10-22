@@ -11,8 +11,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.qrbarcode.creator.R
-import kotlinx.android.synthetic.main.layout_icon_button_with_delimiter.view.*
-
 
 class IconButtonWithDelimiter : FrameLayout {
     private val view: View
@@ -64,3 +62,10 @@ class IconButtonWithDelimiter : FrameLayout {
         view.text_view.isEnabled = enabled
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.view.View.delimiter: android.view.View get() = findViewById(com.qrbarcode.creator.R.id.delimiter)
+private val android.view.View.image_view_arrow: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_arrow)
+private val android.view.View.image_view_schema: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_schema)
+private val android.view.View.layout_image: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.layout_image)
+private val android.view.View.text_view: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view)

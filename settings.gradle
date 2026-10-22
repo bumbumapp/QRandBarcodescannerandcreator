@@ -1,2 +1,3 @@
 rootProject.name='QrandBarcode'
 include ':app'
+include ':simplecropview'

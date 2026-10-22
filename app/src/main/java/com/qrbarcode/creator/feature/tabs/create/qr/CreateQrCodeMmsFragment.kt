@@ -11,7 +11,6 @@ import com.qrbarcode.creator.extension.textString
 import com.qrbarcode.creator.feature.tabs.create.BaseCreateBarcodeFragment
 import com.qrbarcode.creator.model.schema.Mms
 import com.qrbarcode.creator.model.schema.Schema
-import kotlinx.android.synthetic.main.fragment_create_qr_code_mms.*
 
 class CreateQrCodeMmsFragment : BaseCreateBarcodeFragment() {
 
@@ -54,3 +53,14 @@ class CreateQrCodeMmsFragment : BaseCreateBarcodeFragment() {
         parentActivity.isCreateBarcodeButtonEnabled = edit_text_phone.isNotBlank() || edit_text_subject.isNotBlank() || edit_text_message.isNotBlank()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.edit_text_message: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_message)
+private val androidx.fragment.app.Fragment.edit_text_message: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_message)
+private val android.app.Dialog.edit_text_message: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_message)
+private val android.app.Activity.edit_text_phone: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_phone)
+private val androidx.fragment.app.Fragment.edit_text_phone: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_phone)
+private val android.app.Dialog.edit_text_phone: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_phone)
+private val android.app.Activity.edit_text_subject: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_subject)
+private val androidx.fragment.app.Fragment.edit_text_subject: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_subject)
+private val android.app.Dialog.edit_text_subject: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_subject)

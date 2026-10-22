@@ -26,7 +26,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_scan_barcode_from_file.*
+
 import java.util.concurrent.TimeUnit
 
 class ScanBarcodeFromFileActivity : BaseActivity() {
@@ -36,11 +36,11 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
         private const val CHOOSE_FILE_AGAIN_REQUEST_CODE = 13
         private const val PERMISSIONS_REQUEST_CODE = 14
 
-        private val PERMISSIONS = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-            arrayOf(Manifest.permission.READ_MEDIA_IMAGES)
-        }
-        else {
+        // Images come from the system picker (URI grant); only old Android versions need a storage permission.
+        private val PERMISSIONS = if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
             arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+        } else {
+            emptyArray()
         }
 
         fun start(context: Context) {
@@ -200,7 +200,11 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
 
     private fun showErrorOrRequestPermissions(error: Throwable) {
         when (error) {
-            is SecurityException -> permissionsHelper.requestPermissions(this, PERMISSIONS, PERMISSIONS_REQUEST_CODE)
+            is SecurityException -> if (PERMISSIONS.isNotEmpty()) {
+                permissionsHelper.requestPermissions(this, PERMISSIONS, PERMISSIONS_REQUEST_CODE)
+            } else {
+                showError(error)
+            }
             else -> showError(error)
         }
     }
@@ -272,3 +276,20 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
         finish()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.button_scan: android.widget.Button get() = findViewById(com.qrbarcode.creator.R.id.button_scan)
+private val androidx.fragment.app.Fragment.button_scan: android.widget.Button get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_scan)
+private val android.app.Dialog.button_scan: android.widget.Button get() = findViewById(com.qrbarcode.creator.R.id.button_scan)
+private val android.app.Activity.crop_image_view: com.qrbarcode.creator.feature.tabs.scan.file.MyCropImageView get() = findViewById(com.qrbarcode.creator.R.id.crop_image_view)
+private val androidx.fragment.app.Fragment.crop_image_view: com.qrbarcode.creator.feature.tabs.scan.file.MyCropImageView get() = requireView().findViewById(com.qrbarcode.creator.R.id.crop_image_view)
+private val android.app.Dialog.crop_image_view: com.qrbarcode.creator.feature.tabs.scan.file.MyCropImageView get() = findViewById(com.qrbarcode.creator.R.id.crop_image_view)
+private val android.app.Activity.progress_bar_loading: android.widget.ProgressBar get() = findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val androidx.fragment.app.Fragment.progress_bar_loading: android.widget.ProgressBar get() = requireView().findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val android.app.Dialog.progress_bar_loading: android.widget.ProgressBar get() = findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val android.app.Activity.root_view: androidx.constraintlayout.widget.ConstraintLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val androidx.fragment.app.Fragment.root_view: androidx.constraintlayout.widget.ConstraintLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Dialog.root_view: androidx.constraintlayout.widget.ConstraintLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)

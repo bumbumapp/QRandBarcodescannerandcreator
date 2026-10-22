@@ -22,18 +22,17 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_export_history.*
 
 class ExportHistoryActivity : BaseActivity() {
     private val disposable = CompositeDisposable()
 
     companion object {
         private const val REQUEST_PERMISSIONS_CODE = 101
-        private val PERMISSIONS =  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-            arrayOf(Manifest.permission.READ_MEDIA_IMAGES)
-        }
-        else {
+        // Saving goes through MediaStore, which needs no permission from Android 10 on.
+        private val PERMISSIONS = if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
             arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        } else {
+            emptyArray()
         }
 
         fun start(context: Context) {
@@ -94,6 +93,10 @@ class ExportHistoryActivity : BaseActivity() {
     }
 
     private fun requestPermissions() {
+        if (PERMISSIONS.isEmpty()) {
+            exportHistory()
+            return
+        }
         permissionsHelper.requestPermissions(this, PERMISSIONS, REQUEST_PERMISSIONS_CODE)
     }
 
@@ -136,3 +139,26 @@ class ExportHistoryActivity : BaseActivity() {
         finish()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.button_export: android.widget.Button get() = findViewById(com.qrbarcode.creator.R.id.button_export)
+private val androidx.fragment.app.Fragment.button_export: android.widget.Button get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_export)
+private val android.app.Dialog.button_export: android.widget.Button get() = findViewById(com.qrbarcode.creator.R.id.button_export)
+private val android.app.Activity.edit_text_file_name: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_file_name)
+private val androidx.fragment.app.Fragment.edit_text_file_name: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_file_name)
+private val android.app.Dialog.edit_text_file_name: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_file_name)
+private val android.app.Activity.progress_bar_loading: android.widget.ProgressBar get() = findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val androidx.fragment.app.Fragment.progress_bar_loading: android.widget.ProgressBar get() = requireView().findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val android.app.Dialog.progress_bar_loading: android.widget.ProgressBar get() = findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val android.app.Activity.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val androidx.fragment.app.Fragment.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Dialog.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Activity.scroll_view: androidx.core.widget.NestedScrollView get() = findViewById(com.qrbarcode.creator.R.id.scroll_view)
+private val androidx.fragment.app.Fragment.scroll_view: androidx.core.widget.NestedScrollView get() = requireView().findViewById(com.qrbarcode.creator.R.id.scroll_view)
+private val android.app.Dialog.scroll_view: androidx.core.widget.NestedScrollView get() = findViewById(com.qrbarcode.creator.R.id.scroll_view)
+private val android.app.Activity.spinner_export_as: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_export_as)
+private val androidx.fragment.app.Fragment.spinner_export_as: android.widget.Spinner get() = requireView().findViewById(com.qrbarcode.creator.R.id.spinner_export_as)
+private val android.app.Dialog.spinner_export_as: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_export_as)
+private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)

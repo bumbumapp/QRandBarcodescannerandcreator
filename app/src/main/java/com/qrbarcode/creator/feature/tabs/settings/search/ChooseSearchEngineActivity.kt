@@ -11,7 +11,6 @@ import com.qrbarcode.creator.extension.unsafeLazy
 import com.qrbarcode.creator.feature.BaseActivity
 import com.qrbarcode.creator.feature.common.view.SettingsRadioButton
 import com.qrbarcode.creator.model.SearchEngine
-import kotlinx.android.synthetic.main.activity_choose_search_engine.*
 
 class ChooseSearchEngineActivity : BaseActivity() {
 
@@ -84,3 +83,35 @@ class ChooseSearchEngineActivity : BaseActivity() {
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.button_ask_every_time: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_ask_every_time)
+private val androidx.fragment.app.Fragment.button_ask_every_time: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_ask_every_time)
+private val android.app.Dialog.button_ask_every_time: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_ask_every_time)
+private val android.app.Activity.button_bing: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_bing)
+private val androidx.fragment.app.Fragment.button_bing: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_bing)
+private val android.app.Dialog.button_bing: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_bing)
+private val android.app.Activity.button_duck_duck_go: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_duck_duck_go)
+private val androidx.fragment.app.Fragment.button_duck_duck_go: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_duck_duck_go)
+private val android.app.Dialog.button_duck_duck_go: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_duck_duck_go)
+private val android.app.Activity.button_google: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_google)
+private val androidx.fragment.app.Fragment.button_google: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_google)
+private val android.app.Dialog.button_google: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_google)
+private val android.app.Activity.button_none: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_none)
+private val androidx.fragment.app.Fragment.button_none: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_none)
+private val android.app.Dialog.button_none: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_none)
+private val android.app.Activity.button_qwant: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_qwant)
+private val androidx.fragment.app.Fragment.button_qwant: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_qwant)
+private val android.app.Dialog.button_qwant: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_qwant)
+private val android.app.Activity.button_yahoo: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_yahoo)
+private val androidx.fragment.app.Fragment.button_yahoo: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_yahoo)
+private val android.app.Dialog.button_yahoo: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_yahoo)
+private val android.app.Activity.button_yandex: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_yandex)
+private val androidx.fragment.app.Fragment.button_yandex: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_yandex)
+private val android.app.Dialog.button_yandex: com.qrbarcode.creator.feature.common.view.SettingsRadioButton get() = findViewById(com.qrbarcode.creator.R.id.button_yandex)
+private val android.app.Activity.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val androidx.fragment.app.Fragment.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Dialog.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)

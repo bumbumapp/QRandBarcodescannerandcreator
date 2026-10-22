@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.isInvisible
 import com.qrbarcode.creator.R
-import kotlinx.android.synthetic.main.layout_settings_radio_button.view.*
 
 class SettingsRadioButton : FrameLayout {
     private val view: View
@@ -49,3 +48,8 @@ class SettingsRadioButton : FrameLayout {
         view.delimiter.isInvisible = attributes.getBoolean(R.styleable.SettingsRadioButton_isDelimiterVisible, true).not()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.view.View.delimiter: android.view.View get() = findViewById(com.qrbarcode.creator.R.id.delimiter)
+private val android.view.View.radio_button: android.widget.RadioButton get() = findViewById(com.qrbarcode.creator.R.id.radio_button)
+private val android.view.View.text_view_text: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_text)

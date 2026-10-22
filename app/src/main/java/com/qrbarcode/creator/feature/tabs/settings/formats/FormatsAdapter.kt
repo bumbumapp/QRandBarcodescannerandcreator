@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.qrbarcode.creator.R
 import com.qrbarcode.creator.extension.toStringId
 import com.google.zxing.BarcodeFormat
-import kotlinx.android.synthetic.main.item_barcode_format.view.*
 
 class FormatsAdapter(
     private val listener: Listener,
@@ -52,3 +51,8 @@ class FormatsAdapter(
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.view.View.check_box: android.widget.CheckBox get() = findViewById(com.qrbarcode.creator.R.id.check_box)
+private val android.view.View.delimiter: android.view.View get() = findViewById(com.qrbarcode.creator.R.id.delimiter)
+private val android.view.View.text_view_text: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_text)

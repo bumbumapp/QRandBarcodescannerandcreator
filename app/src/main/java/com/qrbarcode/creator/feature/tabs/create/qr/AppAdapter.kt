@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
 import com.qrbarcode.creator.R
-import kotlinx.android.synthetic.main.item_app.view.*
 
 class AppAdapter(private val listener: Listener) : RecyclerView.Adapter<AppAdapter.ViewHolder>() {
 
@@ -68,3 +67,8 @@ class AppAdapter(private val listener: Listener) : RecyclerView.Adapter<AppAdapt
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.view.View.delimiter: android.view.View get() = findViewById(com.qrbarcode.creator.R.id.delimiter)
+private val android.view.View.image_view: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view)
+private val android.view.View.text_view: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view)

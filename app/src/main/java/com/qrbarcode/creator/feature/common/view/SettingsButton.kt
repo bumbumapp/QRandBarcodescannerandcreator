@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import com.qrbarcode.creator.R
-import kotlinx.android.synthetic.main.layout_settings_button.view.*
 
 class SettingsButton : FrameLayout {
     private val view: View
@@ -69,3 +68,8 @@ class SettingsButton : FrameLayout {
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.view.View.switch_button: androidx.appcompat.widget.SwitchCompat get() = findViewById(com.qrbarcode.creator.R.id.switch_button)
+private val android.view.View.text_view_hint: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_hint)
+private val android.view.View.text_view_text: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_text)

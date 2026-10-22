@@ -12,7 +12,7 @@ import com.qrbarcode.creator.extension.unsafeLazy
 import com.qrbarcode.creator.feature.BaseActivity
 import com.qrbarcode.creator.model.Barcode
 import com.qrbarcode.creator.usecase.Logger
-import kotlinx.android.synthetic.main.activity_barcode_image.*
+
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -131,3 +131,20 @@ class BarcodeImageActivity : BaseActivity() {
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.image_view_barcode: com.qrbarcode.creator.feature.common.view.SquareImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_barcode)
+private val androidx.fragment.app.Fragment.image_view_barcode: com.qrbarcode.creator.feature.common.view.SquareImageView get() = requireView().findViewById(com.qrbarcode.creator.R.id.image_view_barcode)
+private val android.app.Dialog.image_view_barcode: com.qrbarcode.creator.feature.common.view.SquareImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_barcode)
+private val android.app.Activity.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val androidx.fragment.app.Fragment.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Dialog.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Activity.text_view_barcode_text: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_barcode_text)
+private val androidx.fragment.app.Fragment.text_view_barcode_text: android.widget.TextView get() = requireView().findViewById(com.qrbarcode.creator.R.id.text_view_barcode_text)
+private val android.app.Dialog.text_view_barcode_text: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_barcode_text)
+private val android.app.Activity.text_view_date: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_date)
+private val androidx.fragment.app.Fragment.text_view_date: android.widget.TextView get() = requireView().findViewById(com.qrbarcode.creator.R.id.text_view_date)
+private val android.app.Dialog.text_view_date: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_date)
+private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)

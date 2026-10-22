@@ -11,7 +11,6 @@ import com.qrbarcode.creator.extension.textString
 import com.qrbarcode.creator.feature.tabs.create.BaseCreateBarcodeFragment
 import com.qrbarcode.creator.model.schema.Geo
 import com.qrbarcode.creator.model.schema.Schema
-import kotlinx.android.synthetic.main.fragment_create_qr_code_location.*
 
 class CreateQrCodeLocationFragment : BaseCreateBarcodeFragment() {
 
@@ -61,3 +60,14 @@ class CreateQrCodeLocationFragment : BaseCreateBarcodeFragment() {
         parentActivity.isCreateBarcodeButtonEnabled = edit_text_latitude.isNotBlank() && edit_text_longitude.isNotBlank()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.edit_text_altitude: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_altitude)
+private val androidx.fragment.app.Fragment.edit_text_altitude: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_altitude)
+private val android.app.Dialog.edit_text_altitude: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_altitude)
+private val android.app.Activity.edit_text_latitude: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_latitude)
+private val androidx.fragment.app.Fragment.edit_text_latitude: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_latitude)
+private val android.app.Dialog.edit_text_latitude: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_latitude)
+private val android.app.Activity.edit_text_longitude: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_longitude)
+private val androidx.fragment.app.Fragment.edit_text_longitude: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_longitude)
+private val android.app.Dialog.edit_text_longitude: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_longitude)

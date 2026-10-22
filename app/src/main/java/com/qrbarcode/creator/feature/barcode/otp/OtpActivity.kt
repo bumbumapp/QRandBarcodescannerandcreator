@@ -15,7 +15,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
-import kotlinx.android.synthetic.main.activity_barcode_otp.*
+
 import java.util.concurrent.TimeUnit
 
 class OtpActivity : BaseActivity() {
@@ -133,3 +133,23 @@ class OtpActivity : BaseActivity() {
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.button_refresh: android.widget.Button get() = findViewById(com.qrbarcode.creator.R.id.button_refresh)
+private val androidx.fragment.app.Fragment.button_refresh: android.widget.Button get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_refresh)
+private val android.app.Dialog.button_refresh: android.widget.Button get() = findViewById(com.qrbarcode.creator.R.id.button_refresh)
+private val android.app.Activity.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val androidx.fragment.app.Fragment.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Dialog.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Activity.text_view_counter: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_counter)
+private val androidx.fragment.app.Fragment.text_view_counter: android.widget.TextView get() = requireView().findViewById(com.qrbarcode.creator.R.id.text_view_counter)
+private val android.app.Dialog.text_view_counter: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_counter)
+private val android.app.Activity.text_view_password: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_password)
+private val androidx.fragment.app.Fragment.text_view_password: android.widget.TextView get() = requireView().findViewById(com.qrbarcode.creator.R.id.text_view_password)
+private val android.app.Dialog.text_view_password: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_password)
+private val android.app.Activity.text_view_timer: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_timer)
+private val androidx.fragment.app.Fragment.text_view_timer: android.widget.TextView get() = requireView().findViewById(com.qrbarcode.creator.R.id.text_view_timer)
+private val android.app.Dialog.text_view_timer: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_timer)
+private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)

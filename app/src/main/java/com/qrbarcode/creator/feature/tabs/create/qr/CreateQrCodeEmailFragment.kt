@@ -11,7 +11,6 @@ import com.qrbarcode.creator.extension.textString
 import com.qrbarcode.creator.feature.tabs.create.BaseCreateBarcodeFragment
 import com.qrbarcode.creator.model.schema.Email
 import com.qrbarcode.creator.model.schema.Schema
-import kotlinx.android.synthetic.main.fragment_create_qr_code_email.*
 
 class CreateQrCodeEmailFragment : BaseCreateBarcodeFragment() {
 
@@ -47,3 +46,14 @@ class CreateQrCodeEmailFragment : BaseCreateBarcodeFragment() {
         parentActivity.isCreateBarcodeButtonEnabled = edit_text_email.isNotBlank() || edit_text_subject.isNotBlank() || edit_text_message.isNotBlank()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.edit_text_email: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_email)
+private val androidx.fragment.app.Fragment.edit_text_email: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_email)
+private val android.app.Dialog.edit_text_email: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_email)
+private val android.app.Activity.edit_text_message: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_message)
+private val androidx.fragment.app.Fragment.edit_text_message: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_message)
+private val android.app.Dialog.edit_text_message: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_message)
+private val android.app.Activity.edit_text_subject: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_subject)
+private val androidx.fragment.app.Fragment.edit_text_subject: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_subject)
+private val android.app.Dialog.edit_text_subject: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_subject)

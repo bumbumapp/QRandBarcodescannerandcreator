@@ -10,7 +10,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import com.qrbarcode.creator.R
-import kotlinx.android.synthetic.main.dialog_edit_barcode_name.view.*
 
 class EditBarcodeNameDialogFragment : DialogFragment() {
 
@@ -68,3 +67,6 @@ class EditBarcodeNameDialogFragment : DialogFragment() {
         manager?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.view.View.edit_text_barcode_name: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_barcode_name)

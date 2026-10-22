@@ -26,13 +26,12 @@ import com.google.android.gms.ads.*
 import com.google.zxing.Result
 import com.google.zxing.ResultMetadataType
 import com.qrbarcode.creator.AdsLoader
-import com.qrbarcode.creator.Globals.TIMER_FINISHED
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_scan_barcode_from_camera.*
+
 import java.util.concurrent.TimeUnit
 
 
@@ -334,7 +333,6 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
     }
 
     private fun navigateToBarcodeScreen(barcode: Barcode) {
-        TIMER_FINISHED=true
         AdsLoader.showAds(requireContext()){barcodeStart(barcode)}
     }
 
@@ -390,3 +388,28 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
     }
 }
 
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.button_decrease_zoom: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.button_decrease_zoom)
+private val androidx.fragment.app.Fragment.button_decrease_zoom: android.widget.ImageView get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_decrease_zoom)
+private val android.app.Dialog.button_decrease_zoom: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.button_decrease_zoom)
+private val android.app.Activity.button_increase_zoom: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.button_increase_zoom)
+private val androidx.fragment.app.Fragment.button_increase_zoom: android.widget.ImageView get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_increase_zoom)
+private val android.app.Dialog.button_increase_zoom: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.button_increase_zoom)
+private val android.app.Activity.image_view_flash: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_flash)
+private val androidx.fragment.app.Fragment.image_view_flash: android.widget.ImageView get() = requireView().findViewById(com.qrbarcode.creator.R.id.image_view_flash)
+private val android.app.Dialog.image_view_flash: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_flash)
+private val android.app.Activity.image_view_scan_from_file: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_scan_from_file)
+private val androidx.fragment.app.Fragment.image_view_scan_from_file: android.widget.ImageView get() = requireView().findViewById(com.qrbarcode.creator.R.id.image_view_scan_from_file)
+private val android.app.Dialog.image_view_scan_from_file: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_scan_from_file)
+private val android.app.Activity.layout_flash_container: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.layout_flash_container)
+private val androidx.fragment.app.Fragment.layout_flash_container: android.widget.FrameLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.layout_flash_container)
+private val android.app.Dialog.layout_flash_container: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.layout_flash_container)
+private val android.app.Activity.layout_scan_from_file_container: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.layout_scan_from_file_container)
+private val androidx.fragment.app.Fragment.layout_scan_from_file_container: android.widget.FrameLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.layout_scan_from_file_container)
+private val android.app.Dialog.layout_scan_from_file_container: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.layout_scan_from_file_container)
+private val android.app.Activity.scanner_view: com.budiyev.android.codescanner.CodeScannerView get() = findViewById(com.qrbarcode.creator.R.id.scanner_view)
+private val androidx.fragment.app.Fragment.scanner_view: com.budiyev.android.codescanner.CodeScannerView get() = requireView().findViewById(com.qrbarcode.creator.R.id.scanner_view)
+private val android.app.Dialog.scanner_view: com.budiyev.android.codescanner.CodeScannerView get() = findViewById(com.qrbarcode.creator.R.id.scanner_view)
+private val android.app.Activity.seek_bar_zoom: android.widget.SeekBar get() = findViewById(com.qrbarcode.creator.R.id.seek_bar_zoom)
+private val androidx.fragment.app.Fragment.seek_bar_zoom: android.widget.SeekBar get() = requireView().findViewById(com.qrbarcode.creator.R.id.seek_bar_zoom)
+private val android.app.Dialog.seek_bar_zoom: android.widget.SeekBar get() = findViewById(com.qrbarcode.creator.R.id.seek_bar_zoom)

@@ -14,7 +14,6 @@ import com.qrbarcode.creator.extension.textString
 import com.qrbarcode.creator.feature.tabs.create.BaseCreateBarcodeFragment
 import com.qrbarcode.creator.model.schema.Schema
 import com.qrbarcode.creator.model.schema.Wifi
-import kotlinx.android.synthetic.main.fragment_create_qr_code_wifi.*
 
 class CreateQrCodeWifiFragment : BaseCreateBarcodeFragment() {
 
@@ -75,3 +74,20 @@ class CreateQrCodeWifiFragment : BaseCreateBarcodeFragment() {
         parentActivity.isCreateBarcodeButtonEnabled = edit_text_network_name.isNotBlank()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.check_box_is_hidden: android.widget.CheckBox get() = findViewById(com.qrbarcode.creator.R.id.check_box_is_hidden)
+private val androidx.fragment.app.Fragment.check_box_is_hidden: android.widget.CheckBox get() = requireView().findViewById(com.qrbarcode.creator.R.id.check_box_is_hidden)
+private val android.app.Dialog.check_box_is_hidden: android.widget.CheckBox get() = findViewById(com.qrbarcode.creator.R.id.check_box_is_hidden)
+private val android.app.Activity.edit_text_network_name: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_network_name)
+private val androidx.fragment.app.Fragment.edit_text_network_name: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_network_name)
+private val android.app.Dialog.edit_text_network_name: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_network_name)
+private val android.app.Activity.edit_text_password: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_password)
+private val androidx.fragment.app.Fragment.edit_text_password: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_password)
+private val android.app.Dialog.edit_text_password: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_password)
+private val android.app.Activity.spinner_encryption: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_encryption)
+private val androidx.fragment.app.Fragment.spinner_encryption: android.widget.Spinner get() = requireView().findViewById(com.qrbarcode.creator.R.id.spinner_encryption)
+private val android.app.Dialog.spinner_encryption: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_encryption)
+private val android.app.Activity.text_input_layout_password: com.google.android.material.textfield.TextInputLayout get() = findViewById(com.qrbarcode.creator.R.id.text_input_layout_password)
+private val androidx.fragment.app.Fragment.text_input_layout_password: com.google.android.material.textfield.TextInputLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.text_input_layout_password)
+private val android.app.Dialog.text_input_layout_password: com.google.android.material.textfield.TextInputLayout get() = findViewById(com.qrbarcode.creator.R.id.text_input_layout_password)

@@ -10,8 +10,6 @@ import android.widget.FrameLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import com.qrbarcode.creator.R
-import kotlinx.android.synthetic.main.layout_icon_button.view.*
-
 
 class IconButton : FrameLayout {
     private val view: View
@@ -59,3 +57,8 @@ class IconButton : FrameLayout {
         view.text_view.isEnabled = enabled
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.view.View.image_view_schema: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_schema)
+private val android.view.View.layout_image: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.layout_image)
+private val android.view.View.text_view: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view)

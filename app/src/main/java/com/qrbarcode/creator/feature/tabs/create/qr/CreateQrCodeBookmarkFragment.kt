@@ -11,7 +11,6 @@ import com.qrbarcode.creator.extension.textString
 import com.qrbarcode.creator.feature.tabs.create.BaseCreateBarcodeFragment
 import com.qrbarcode.creator.model.schema.Bookmark
 import com.qrbarcode.creator.model.schema.Schema
-import kotlinx.android.synthetic.main.fragment_create_qr_code_bookmark.*
 
 class CreateQrCodeBookmarkFragment : BaseCreateBarcodeFragment() {
 
@@ -45,3 +44,11 @@ class CreateQrCodeBookmarkFragment : BaseCreateBarcodeFragment() {
         parentActivity.isCreateBarcodeButtonEnabled = edit_text_title.isNotBlank() || edit_text_url.isNotBlank()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.edit_text_title: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_title)
+private val androidx.fragment.app.Fragment.edit_text_title: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_title)
+private val android.app.Dialog.edit_text_title: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_title)
+private val android.app.Activity.edit_text_url: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_url)
+private val androidx.fragment.app.Fragment.edit_text_url: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_url)
+private val android.app.Dialog.edit_text_url: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_url)

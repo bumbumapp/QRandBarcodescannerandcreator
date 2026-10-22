@@ -19,7 +19,6 @@ import io.reactivex.BackpressureStrategy
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
-import kotlinx.android.synthetic.main.fragment_barcode_history_list.*
 
 class BarcodeHistoryListFragment : Fragment(), BarcodeHistoryAdapter.Listener {
 
@@ -102,3 +101,8 @@ class BarcodeHistoryListFragment : Fragment(), BarcodeHistoryAdapter.Listener {
             .addTo(disposable)
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.recycler_view_history: androidx.recyclerview.widget.RecyclerView get() = findViewById(com.qrbarcode.creator.R.id.recycler_view_history)
+private val androidx.fragment.app.Fragment.recycler_view_history: androidx.recyclerview.widget.RecyclerView get() = requireView().findViewById(com.qrbarcode.creator.R.id.recycler_view_history)
+private val android.app.Dialog.recycler_view_history: androidx.recyclerview.widget.RecyclerView get() = findViewById(com.qrbarcode.creator.R.id.recycler_view_history)

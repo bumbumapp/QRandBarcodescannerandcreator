@@ -20,17 +20,16 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_save_barcode_as_text.*
 
 class SaveBarcodeAsTextActivity : BaseActivity() {
 
     companion object {
         private const val REQUEST_PERMISSIONS_CODE = 101
-        private val PERMISSIONS =  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-            arrayOf(Manifest.permission.READ_MEDIA_IMAGES)
-        }
-        else {
+        // Saving goes through MediaStore, which needs no permission from Android 10 on.
+        private val PERMISSIONS = if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
             arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        } else {
+            emptyArray()
         }
 
         private const val BARCODE_KEY = "BARCODE_KEY"
@@ -94,6 +93,10 @@ class SaveBarcodeAsTextActivity : BaseActivity() {
     }
 
     private fun requestPermissions() {
+        if (PERMISSIONS.isEmpty()) {
+            saveBarcode()
+            return
+        }
         permissionsHelper.requestPermissions(this, PERMISSIONS, REQUEST_PERMISSIONS_CODE)
     }
 
@@ -129,3 +132,23 @@ class SaveBarcodeAsTextActivity : BaseActivity() {
         finish()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.button_save: android.widget.Button get() = findViewById(com.qrbarcode.creator.R.id.button_save)
+private val androidx.fragment.app.Fragment.button_save: android.widget.Button get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_save)
+private val android.app.Dialog.button_save: android.widget.Button get() = findViewById(com.qrbarcode.creator.R.id.button_save)
+private val android.app.Activity.progress_bar_loading: android.widget.ProgressBar get() = findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val androidx.fragment.app.Fragment.progress_bar_loading: android.widget.ProgressBar get() = requireView().findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val android.app.Dialog.progress_bar_loading: android.widget.ProgressBar get() = findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val android.app.Activity.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val androidx.fragment.app.Fragment.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Dialog.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Activity.scroll_view: androidx.core.widget.NestedScrollView get() = findViewById(com.qrbarcode.creator.R.id.scroll_view)
+private val androidx.fragment.app.Fragment.scroll_view: androidx.core.widget.NestedScrollView get() = requireView().findViewById(com.qrbarcode.creator.R.id.scroll_view)
+private val android.app.Dialog.scroll_view: androidx.core.widget.NestedScrollView get() = findViewById(com.qrbarcode.creator.R.id.scroll_view)
+private val android.app.Activity.spinner_save_as: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_save_as)
+private val androidx.fragment.app.Fragment.spinner_save_as: android.widget.Spinner get() = requireView().findViewById(com.qrbarcode.creator.R.id.spinner_save_as)
+private val android.app.Dialog.spinner_save_as: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_save_as)
+private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)

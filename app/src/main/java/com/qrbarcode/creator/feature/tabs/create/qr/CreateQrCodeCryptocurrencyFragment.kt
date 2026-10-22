@@ -12,7 +12,6 @@ import com.qrbarcode.creator.extension.textString
 import com.qrbarcode.creator.feature.tabs.create.BaseCreateBarcodeFragment
 import com.qrbarcode.creator.model.schema.Cryptocurrency
 import com.qrbarcode.creator.model.schema.Schema
-import kotlinx.android.synthetic.main.fragment_create_qr_code_cryptocurrency.*
 
 class CreateQrCodeCryptocurrencyFragment : BaseCreateBarcodeFragment() {
 
@@ -67,3 +66,20 @@ class CreateQrCodeCryptocurrencyFragment : BaseCreateBarcodeFragment() {
         parentActivity.isCreateBarcodeButtonEnabled = edit_text_address.isNotBlank()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.edit_text_address: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_address)
+private val androidx.fragment.app.Fragment.edit_text_address: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_address)
+private val android.app.Dialog.edit_text_address: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_address)
+private val android.app.Activity.edit_text_amount: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_amount)
+private val androidx.fragment.app.Fragment.edit_text_amount: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_amount)
+private val android.app.Dialog.edit_text_amount: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_amount)
+private val android.app.Activity.edit_text_label: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_label)
+private val androidx.fragment.app.Fragment.edit_text_label: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_label)
+private val android.app.Dialog.edit_text_label: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_label)
+private val android.app.Activity.edit_text_message: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_message)
+private val androidx.fragment.app.Fragment.edit_text_message: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_message)
+private val android.app.Dialog.edit_text_message: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_message)
+private val android.app.Activity.spinner_cryptocurrency: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_cryptocurrency)
+private val androidx.fragment.app.Fragment.spinner_cryptocurrency: android.widget.Spinner get() = requireView().findViewById(com.qrbarcode.creator.R.id.spinner_cryptocurrency)
+private val android.app.Dialog.spinner_cryptocurrency: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_cryptocurrency)

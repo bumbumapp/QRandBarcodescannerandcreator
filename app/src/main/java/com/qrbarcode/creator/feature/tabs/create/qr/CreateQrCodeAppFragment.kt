@@ -18,7 +18,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_create_qr_code_app.*
 
 class CreateQrCodeAppFragment : BaseCreateBarcodeFragment() {
     private val disposable = CompositeDisposable()
@@ -88,3 +87,11 @@ class CreateQrCodeAppFragment : BaseCreateBarcodeFragment() {
         appAdapter.apps = apps
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.progress_bar_loading: android.widget.ProgressBar get() = findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val androidx.fragment.app.Fragment.progress_bar_loading: android.widget.ProgressBar get() = requireView().findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val android.app.Dialog.progress_bar_loading: android.widget.ProgressBar get() = findViewById(com.qrbarcode.creator.R.id.progress_bar_loading)
+private val android.app.Activity.recycler_view_apps: androidx.recyclerview.widget.RecyclerView get() = findViewById(com.qrbarcode.creator.R.id.recycler_view_apps)
+private val androidx.fragment.app.Fragment.recycler_view_apps: androidx.recyclerview.widget.RecyclerView get() = requireView().findViewById(com.qrbarcode.creator.R.id.recycler_view_apps)
+private val android.app.Dialog.recycler_view_apps: androidx.recyclerview.widget.RecyclerView get() = findViewById(com.qrbarcode.creator.R.id.recycler_view_apps)

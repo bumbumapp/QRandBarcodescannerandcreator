@@ -15,7 +15,7 @@ import com.qrbarcode.creator.extension.toColorId
 import com.qrbarcode.creator.extension.toImageId
 import com.qrbarcode.creator.extension.toStringId
 import com.qrbarcode.creator.model.Barcode
-import kotlinx.android.synthetic.main.item_barcode_history.view.*
+
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -102,3 +102,12 @@ class BarcodeHistoryAdapter(private val listener: Listener) : PagedListAdapter<B
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.view.View.delimiter: android.view.View get() = findViewById(com.qrbarcode.creator.R.id.delimiter)
+private val android.view.View.image_view_favorite: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_favorite)
+private val android.view.View.image_view_schema: android.widget.ImageView get() = findViewById(com.qrbarcode.creator.R.id.image_view_schema)
+private val android.view.View.layout_image: android.widget.FrameLayout get() = findViewById(com.qrbarcode.creator.R.id.layout_image)
+private val android.view.View.text_view_date: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_date)
+private val android.view.View.text_view_format: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_format)
+private val android.view.View.text_view_text: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_text)

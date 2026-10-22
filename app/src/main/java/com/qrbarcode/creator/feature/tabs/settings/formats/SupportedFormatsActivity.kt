@@ -11,7 +11,6 @@ import com.qrbarcode.creator.extension.unsafeLazy
 import com.qrbarcode.creator.feature.BaseActivity
 import com.qrbarcode.creator.usecase.SupportedBarcodeFormats
 import com.google.zxing.BarcodeFormat
-import kotlinx.android.synthetic.main.activity_supported_formats.*
 
 class SupportedFormatsActivity : BaseActivity(), FormatsAdapter.Listener {
 
@@ -55,3 +54,14 @@ class SupportedFormatsActivity : BaseActivity(), FormatsAdapter.Listener {
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.recycler_view_formats: androidx.recyclerview.widget.RecyclerView get() = findViewById(com.qrbarcode.creator.R.id.recycler_view_formats)
+private val androidx.fragment.app.Fragment.recycler_view_formats: androidx.recyclerview.widget.RecyclerView get() = requireView().findViewById(com.qrbarcode.creator.R.id.recycler_view_formats)
+private val android.app.Dialog.recycler_view_formats: androidx.recyclerview.widget.RecyclerView get() = findViewById(com.qrbarcode.creator.R.id.recycler_view_formats)
+private val android.app.Activity.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val androidx.fragment.app.Fragment.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Dialog.root_view: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.qrbarcode.creator.R.id.root_view)
+private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
+private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)

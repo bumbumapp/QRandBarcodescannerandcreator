@@ -17,7 +17,7 @@ import com.qrbarcode.creator.feature.tabs.create.BaseCreateBarcodeFragment
 import com.qrbarcode.creator.model.schema.OtpAuth
 import com.qrbarcode.creator.model.schema.Schema
 import dev.turingcomplete.kotlinonetimepassword.RandomSecretGenerator
-import kotlinx.android.synthetic.main.fragment_create_qr_code_otp.*
+
 import java.util.*
 
 class CreateQrCodeOtpFragment : BaseCreateBarcodeFragment() {
@@ -38,7 +38,7 @@ class CreateQrCodeOtpFragment : BaseCreateBarcodeFragment() {
 
     override fun getBarcodeSchema(): Schema {
         return OtpAuth(
-            type = spinner_opt_types.selectedItem?.toString()?.toLowerCase(Locale.ENGLISH),
+            type = spinner_opt_types.selectedItem?.toString()?.lowercase(Locale.ENGLISH),
             algorithm = spinner_algorithms.selectedItem?.toString(),
             label = if (edit_text_issuer.isNotBlank()) {
                 "${edit_text_issuer.textString}:${edit_text_account.textString}"
@@ -109,3 +109,35 @@ class CreateQrCodeOtpFragment : BaseCreateBarcodeFragment() {
         return secret.encodeBase32()
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.button_generate_random_secret: android.widget.Button get() = findViewById(com.qrbarcode.creator.R.id.button_generate_random_secret)
+private val androidx.fragment.app.Fragment.button_generate_random_secret: android.widget.Button get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_generate_random_secret)
+private val android.app.Dialog.button_generate_random_secret: android.widget.Button get() = findViewById(com.qrbarcode.creator.R.id.button_generate_random_secret)
+private val android.app.Activity.edit_text_account: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_account)
+private val androidx.fragment.app.Fragment.edit_text_account: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_account)
+private val android.app.Dialog.edit_text_account: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_account)
+private val android.app.Activity.edit_text_counter: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_counter)
+private val androidx.fragment.app.Fragment.edit_text_counter: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_counter)
+private val android.app.Dialog.edit_text_counter: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_counter)
+private val android.app.Activity.edit_text_digits: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_digits)
+private val androidx.fragment.app.Fragment.edit_text_digits: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_digits)
+private val android.app.Dialog.edit_text_digits: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_digits)
+private val android.app.Activity.edit_text_issuer: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_issuer)
+private val androidx.fragment.app.Fragment.edit_text_issuer: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_issuer)
+private val android.app.Dialog.edit_text_issuer: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_issuer)
+private val android.app.Activity.edit_text_period: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_period)
+private val androidx.fragment.app.Fragment.edit_text_period: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_period)
+private val android.app.Dialog.edit_text_period: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_period)
+private val android.app.Activity.edit_text_secret: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_secret)
+private val androidx.fragment.app.Fragment.edit_text_secret: android.widget.EditText get() = requireView().findViewById(com.qrbarcode.creator.R.id.edit_text_secret)
+private val android.app.Dialog.edit_text_secret: android.widget.EditText get() = findViewById(com.qrbarcode.creator.R.id.edit_text_secret)
+private val android.app.Activity.spinner_algorithms: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_algorithms)
+private val androidx.fragment.app.Fragment.spinner_algorithms: android.widget.Spinner get() = requireView().findViewById(com.qrbarcode.creator.R.id.spinner_algorithms)
+private val android.app.Dialog.spinner_algorithms: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_algorithms)
+private val android.app.Activity.spinner_opt_types: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_opt_types)
+private val androidx.fragment.app.Fragment.spinner_opt_types: android.widget.Spinner get() = requireView().findViewById(com.qrbarcode.creator.R.id.spinner_opt_types)
+private val android.app.Dialog.spinner_opt_types: android.widget.Spinner get() = findViewById(com.qrbarcode.creator.R.id.spinner_opt_types)
+private val android.app.Activity.text_input_layout_counter: com.google.android.material.textfield.TextInputLayout get() = findViewById(com.qrbarcode.creator.R.id.text_input_layout_counter)
+private val androidx.fragment.app.Fragment.text_input_layout_counter: com.google.android.material.textfield.TextInputLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.text_input_layout_counter)
+private val android.app.Dialog.text_input_layout_counter: com.google.android.material.textfield.TextInputLayout get() = findViewById(com.qrbarcode.creator.R.id.text_input_layout_counter)

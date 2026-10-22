@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.qrbarcode.creator"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!--Normal permissions-->
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -15,9 +13,8 @@
     <!--Dangerous permissions-->
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28"/>
 
     <application
         android:allowBackup="true"
@@ -27,6 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name="com.qrbarcode.creator.App"
+        android:enableOnBackInvokedCallback="false"
         >
 
 <!--        <meta-data-->
@@ -191,7 +189,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8444865753152507~8247176634"/>
+            android:value="${admobAppId}"/>
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
             android:value="true" />

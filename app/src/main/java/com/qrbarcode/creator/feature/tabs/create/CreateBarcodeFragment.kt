@@ -14,7 +14,6 @@ import com.qrbarcode.creator.feature.tabs.create.qr.CreateQrCodeAllActivity
 import com.qrbarcode.creator.model.schema.BarcodeSchema
 import com.google.zxing.BarcodeFormat
 import com.qrbarcode.creator.AdsLoader
-import kotlinx.android.synthetic.main.fragment_create_barcode.*
 
 class CreateBarcodeFragment : Fragment() {
 
@@ -57,3 +56,32 @@ class CreateBarcodeFragment : Fragment() {
         }
     }
 }
+
+// Former kotlinx.android.synthetic accessors (plugin removed in Kotlin 2).
+private val android.app.Activity.app_bar_layout: com.google.android.material.appbar.AppBarLayout get() = findViewById(com.qrbarcode.creator.R.id.app_bar_layout)
+private val androidx.fragment.app.Fragment.app_bar_layout: com.google.android.material.appbar.AppBarLayout get() = requireView().findViewById(com.qrbarcode.creator.R.id.app_bar_layout)
+private val android.app.Dialog.app_bar_layout: com.google.android.material.appbar.AppBarLayout get() = findViewById(com.qrbarcode.creator.R.id.app_bar_layout)
+private val android.app.Activity.button_clipboard: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_clipboard)
+private val androidx.fragment.app.Fragment.button_clipboard: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_clipboard)
+private val android.app.Dialog.button_clipboard: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_clipboard)
+private val android.app.Activity.button_contact_vcard: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_contact_vcard)
+private val androidx.fragment.app.Fragment.button_contact_vcard: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_contact_vcard)
+private val android.app.Dialog.button_contact_vcard: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_contact_vcard)
+private val android.app.Activity.button_create_barcode: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_create_barcode)
+private val androidx.fragment.app.Fragment.button_create_barcode: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_create_barcode)
+private val android.app.Dialog.button_create_barcode: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_create_barcode)
+private val android.app.Activity.button_location: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_location)
+private val androidx.fragment.app.Fragment.button_location: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_location)
+private val android.app.Dialog.button_location: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_location)
+private val android.app.Activity.button_show_all_qr_code: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_show_all_qr_code)
+private val androidx.fragment.app.Fragment.button_show_all_qr_code: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_show_all_qr_code)
+private val android.app.Dialog.button_show_all_qr_code: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_show_all_qr_code)
+private val android.app.Activity.button_text: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_text)
+private val androidx.fragment.app.Fragment.button_text: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_text)
+private val android.app.Dialog.button_text: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_text)
+private val android.app.Activity.button_url: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_url)
+private val androidx.fragment.app.Fragment.button_url: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_url)
+private val android.app.Dialog.button_url: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_url)
+private val android.app.Activity.button_wifi: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_wifi)
+private val androidx.fragment.app.Fragment.button_wifi: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = requireView().findViewById(com.qrbarcode.creator.R.id.button_wifi)
+private val android.app.Dialog.button_wifi: com.qrbarcode.creator.feature.common.view.IconButtonWithDelimiter get() = findViewById(com.qrbarcode.creator.R.id.button_wifi)
