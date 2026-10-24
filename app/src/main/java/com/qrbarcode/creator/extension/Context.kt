@@ -22,3 +22,14 @@ val Context.currentLocale: Locale?
     } else {
         resources.configuration.locale
     }
+/**
+ * Runs [start] (a startActivity call) and returns false if no app can handle the intent.
+ * Intent.resolveActivity() can't be used for this check: since Android 11 package visibility hides
+ * other apps from it, so it returned null and links, calls and the image picker never opened.
+ */
+inline fun tryStartActivity(start: () -> Unit): Boolean = try {
+    start()
+    true
+} catch (e: android.content.ActivityNotFoundException) {
+    false
+}

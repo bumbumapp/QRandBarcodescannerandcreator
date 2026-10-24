@@ -13,6 +13,7 @@ import com.qrbarcode.creator.R
 import com.qrbarcode.creator.di.*
 import com.qrbarcode.creator.extension.applySystemWindowInsets
 import com.qrbarcode.creator.extension.showError
+import com.qrbarcode.creator.extension.tryStartActivity
 import com.qrbarcode.creator.extension.toStringId
 import com.qrbarcode.creator.extension.unsafeLazy
 import com.qrbarcode.creator.feature.BaseActivity
@@ -286,9 +287,7 @@ class CreateBarcodeActivity : BaseActivity(), AppAdapter.Listener {
     }
 
     private fun startActivityForResultIfExists(intent: Intent, requestCode: Int) {
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivityForResult(intent, requestCode)
-        } else {
+        if (!tryStartActivity { startActivityForResult(intent, requestCode) }) {
             Toast.makeText(this, R.string.activity_barcode_no_app, Toast.LENGTH_SHORT).show()
         }
     }

@@ -16,6 +16,7 @@ import com.qrbarcode.creator.R
 import com.qrbarcode.creator.di.*
 import com.qrbarcode.creator.extension.applySystemWindowInsets
 import com.qrbarcode.creator.extension.showError
+import com.qrbarcode.creator.extension.tryStartActivity
 import com.qrbarcode.creator.feature.BaseActivity
 import com.qrbarcode.creator.feature.barcode.BarcodeActivity
 import com.qrbarcode.creator.model.Barcode
@@ -146,8 +147,10 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
             setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
         }
 
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivityForResult(intent, requestCode)
+        val started = tryStartActivity { startActivityForResult(intent, requestCode) } ||
+            tryStartActivity { startActivityForResult(Intent(Intent.ACTION_GET_CONTENT).setType("image/*"), requestCode) }
+        if (!started && requestCode == CHOOSE_FILE_REQUEST_CODE) {
+            finish()
         }
     }
 

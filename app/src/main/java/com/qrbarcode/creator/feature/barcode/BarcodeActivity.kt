@@ -740,9 +740,7 @@ class BarcodeActivity : BaseActivity(), DeleteConfirmationDialogFragment.Listene
             flags = flags or Intent.FLAG_ACTIVITY_NEW_TASK
         }
 
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivity(intent)
-        } else {
+        if (!tryStartActivity { startActivity(intent) }) {
             showToast(R.string.activity_barcode_no_app)
         }
     }
