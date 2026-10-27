@@ -117,10 +117,11 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
 
 
         requireActivity().window.decorView.apply {
-            systemUiVisibility = systemUiVisibility xor View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            systemUiVisibility = systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
         }
     }
 
+    // Every screen is graphite/black now, so leaving the scanner restores light (white) status icons too.
     private fun setLightStatusBar() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return
@@ -128,7 +129,7 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
 
 
         requireActivity().window.decorView.apply {
-            systemUiVisibility = systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            systemUiVisibility = systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
         }
     }
 
