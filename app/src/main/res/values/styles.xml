@@ -11,6 +11,8 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/navigation_bar_color</item>
         <item name="android:actionOverflowButtonStyle">@style/ToolbarMenuButtonStyle</item>
+        <item name="android:fontFamily">@font/manrope</item>
+        <item name="fontFamily">@font/manrope</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme"/>
@@ -38,7 +40,9 @@
 
 
     <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/manrope_extrabold</item>
+        <item name="android:letterSpacing">-0.02</item>
     </style>
 
     <style name="ToolbarMenuButtonStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow" >
@@ -53,7 +57,7 @@
     <style name="TabTextAppearance">
         <item name="android:textSize">@dimen/default_text_size_very_small</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textAllCaps">true</item>
+        <item name="android:textAllCaps">false</item>
         <item name="android:singleLine">true</item>
     </style>
 
