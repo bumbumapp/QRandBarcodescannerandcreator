@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
 
-/** Interstitials go through [InterstitialHelper]: consent gated, preloaded once, 60 s frequency cap. */
+/** Interstitials go through [InterstitialHelper]: consent gated, preloaded once, at most one per 10 minutes. */
 object AdsLoader {
 
     fun displayInterstitial(context: Context) {
