@@ -121,15 +121,19 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
         }
     }
 
-    // Every screen is graphite/black now, so leaving the scanner restores light (white) status icons too.
+    // Leaving the camera: Bento screens are light in day mode, so restore dark status icons there.
     private fun setLightStatusBar() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return
         }
-
-
+        val night = (resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK) ==
+            android.content.res.Configuration.UI_MODE_NIGHT_YES
         requireActivity().window.decorView.apply {
-            systemUiVisibility = systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+            systemUiVisibility = if (night) {
+                systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+            } else {
+                systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            }
         }
     }
 

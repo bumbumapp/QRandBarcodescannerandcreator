@@ -374,4 +374,6 @@
     <string name="barcode_format_upc_e" translatable="false">UPC-E</string>
 
     <string name="privacy_options" translatable="false">Privacy options</string>
+    <string name="bento_hero_title">QR from clipboard</string>
+    <string name="bento_more_codes">More codes</string>
 </resources>

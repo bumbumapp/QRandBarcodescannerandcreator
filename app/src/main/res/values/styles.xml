@@ -8,11 +8,11 @@
         <item name="android:textColor">@color/default_text_color</item>
         <item name="android:textColorSecondary">@color/text_color_secondary</item>
         <item name="android:statusBarColor">@color/transparent</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
         <item name="android:navigationBarColor">@color/navigation_bar_color</item>
         <item name="android:actionOverflowButtonStyle">@style/ToolbarMenuButtonStyle</item>
-        <item name="android:fontFamily">@font/manrope</item>
-        <item name="fontFamily">@font/manrope</item>
+        <item name="android:fontFamily">@font/jakarta</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme"/>
@@ -41,7 +41,7 @@
 
     <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">24sp</item>
-        <item name="android:fontFamily">@font/manrope_extrabold</item>
+        <item name="android:fontFamily">@font/jakarta_extrabold</item>
         <item name="android:letterSpacing">-0.02</item>
     </style>
 
@@ -156,4 +156,52 @@
         <item name="colorAccent">@color/color_accent</item>
     </style>
 
+    <style name="BentoTile">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="BentoTileBody">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="BentoTileIcon">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:padding">9dp</item>
+        <item name="android:background">@drawable/bento_round_12</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="BentoTileLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:fontFamily">@font/jakarta_semibold</item>
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="BentoListRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
 </resources>
