@@ -116,9 +116,9 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
         }
 
 
-        requireActivity().window.decorView.apply {
-            systemUiVisibility = systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
-        }
+        // The camera preview starts below the status bar, so the strip above it is the Bento ground:
+        // icons follow the day/night theme like the other tabs.
+        setLightStatusBar()
     }
 
     // Leaving the camera: Bento screens are light in day mode, so restore dark status icons there.

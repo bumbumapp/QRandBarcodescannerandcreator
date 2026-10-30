@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Light Bento ground: dark status bar icons. The camera scan screen switches to light icons in code. -->
     <style name="AppTheme" parent="BaseAppTheme">
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>
