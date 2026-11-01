@@ -121,3 +121,8 @@
 -dontwarn com.sun.org.apache.**
 -dontwarn org.apache.xml.**
 -dontwarn org.apache.xpath.**
+
+# Huawei Ads (hms flavor)
+-keep class com.huawei.openalliance.ad.** { *; }
+-keep class com.huawei.hms.ads.** { *; }
+-dontwarn com.huawei.**

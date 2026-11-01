@@ -95,3 +95,4 @@ atlassian-ide-plugin.xml
 
 # Sentry
 /sentry.properties
+ads.properties

@@ -22,7 +22,6 @@ import com.qrbarcode.creator.feature.tabs.scan.file.ScanBarcodeFromFileActivity
 import com.qrbarcode.creator.model.Barcode
 import com.qrbarcode.creator.usecase.SupportedBarcodeFormats
 import com.qrbarcode.creator.usecase.save
-import com.google.android.gms.ads.*
 import com.google.zxing.Result
 import com.google.zxing.ResultMetadataType
 import com.qrbarcode.creator.AdsLoader
