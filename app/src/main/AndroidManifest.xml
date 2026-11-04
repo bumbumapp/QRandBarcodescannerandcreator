@@ -148,6 +148,11 @@
             android:configChanges="orientation|screenSize"
             />
         <activity
+            android:name="com.qrbarcode.creator.feature.barcode.customize.CustomizeBarcodeActivity"
+            android:screenOrientation="fullSensor"
+            android:configChanges="orientation|screenSize"
+            />
+        <activity
             android:name="com.qrbarcode.creator.feature.barcode.save.SaveBarcodeAsImageActivity"
             android:screenOrientation="fullSensor"
             android:configChanges="orientation|screenSize"

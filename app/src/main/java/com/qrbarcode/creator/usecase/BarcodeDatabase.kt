@@ -70,6 +70,9 @@ interface BarcodeDatabase {
     @Query("SELECT * FROM codes WHERE isFavorite = 1 ORDER BY date DESC")
     fun getFavorites(): DataSource.Factory<Int, Barcode>
 
+    @Query("SELECT date, format, schema, isGenerated, isFavorite FROM codes")
+    fun getInsightRows(): Single<List<com.qrbarcode.creator.usecase.InsightRow>>
+
     @Query("SELECT date, format, text FROM codes ORDER BY date DESC")
     fun getAllForExport(): Single<List<ExportBarcode>>
 

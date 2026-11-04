@@ -116,6 +116,17 @@
                 android:layout_marginBottom="@dimen/default_margin_medium"
                 />
 
+            <TextView
+                android:id="@+id/text_view_link_safety"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/default_margin"
+                android:layout_marginBottom="@dimen/default_margin_medium"
+                android:padding="12dp"
+                android:background="@drawable/background_link_safety"
+                android:visibility="gone"
+                style="@style/DefaultTextViewStyle"
+                />
             <!--Specific buttons-->
             <com.qrbarcode.creator.feature.common.view.IconButton
                 android:id="@+id/button_search_on_web"
@@ -408,6 +419,15 @@
                 app:icon="@drawable/ic_share"
                 app:iconBackground="@color/blue"
                 app:text="@string/activity_barcode_share_as_image"
+                />
+            <com.qrbarcode.creator.feature.common.view.IconButton
+                android:id="@+id/button_customize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_palette"
+                app:iconBackground="@color/blue"
+                app:text="@string/customize_button"
+                android:visibility="gone"
                 />
             <com.qrbarcode.creator.feature.common.view.IconButton
                 android:id="@+id/button_save_as_image"

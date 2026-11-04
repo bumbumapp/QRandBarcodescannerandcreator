@@ -218,6 +218,9 @@ class BarcodeActivity : BaseActivity(), DeleteConfirmationDialogFragment.Listene
         button_save_as_text.setOnClickListener { navigateToSaveBarcodeAsTextActivity() }
         button_share_as_image.setOnClickListener { shareBarcodeAsImage() }
         button_save_as_image.setOnClickListener { navigateToSaveBarcodeAsImageActivity() }
+        button_customize.setOnClickListener {
+            com.qrbarcode.creator.feature.barcode.customize.CustomizeBarcodeActivity.start(this, originalBarcode)
+        }
         button_print.setOnClickListener { printBarcode() }
     }
 
@@ -653,6 +656,8 @@ class BarcodeActivity : BaseActivity(), DeleteConfirmationDialogFragment.Listene
     private fun showOrHideButtons() {
         button_search.isVisible = isCreated.not()
         button_edit_name.isVisible = barcode.isInDb
+        button_customize.isVisible = originalBarcode.format == com.google.zxing.BarcodeFormat.QR_CODE
+        showLinkSafety()
 
         if (isCreated) {
             return
@@ -689,6 +694,46 @@ class BarcodeActivity : BaseActivity(), DeleteConfirmationDialogFragment.Listene
         button_open_bitcoin_uri.isVisible = barcode.bitcoinUri.isNullOrEmpty().not()
         button_open_link.isVisible = barcode.url.isNullOrEmpty().not()
         button_save_bookmark.isVisible = barcode.schema == BarcodeSchema.BOOKMARK
+    }
+
+    private fun showLinkSafety() {
+        val url = barcode.url
+        if (isCreated || url.isNullOrEmpty()) {
+            text_view_link_safety.isVisible = false
+            return
+        }
+        val verdict = com.qrbarcode.creator.usecase.LinkSafety.analyze(url)
+        val headline = when (verdict.level) {
+            com.qrbarcode.creator.usecase.LinkSafety.Level.OK -> R.string.link_safety_ok
+            com.qrbarcode.creator.usecase.LinkSafety.Level.CAUTION -> R.string.link_safety_caution
+            com.qrbarcode.creator.usecase.LinkSafety.Level.DANGER -> R.string.link_safety_danger
+        }
+        val sb = StringBuilder(getString(headline))
+        for (reason in verdict.reasons) {
+            sb.append("\n\u2022 ").append(getString(linkReasonText(reason)))
+        }
+        text_view_link_safety.text = sb.toString()
+        val color = when (verdict.level) {
+            com.qrbarcode.creator.usecase.LinkSafety.Level.OK -> R.color.default_text_color
+            com.qrbarcode.creator.usecase.LinkSafety.Level.CAUTION -> R.color.orange
+            com.qrbarcode.creator.usecase.LinkSafety.Level.DANGER -> R.color.red
+        }
+        text_view_link_safety.setTextColor(getColor(color))
+        text_view_link_safety.isVisible = true
+    }
+
+    private fun linkReasonText(reason: com.qrbarcode.creator.usecase.LinkSafety.Reason): Int = when (reason) {
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.NOT_HTTPS -> R.string.link_reason_not_https
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.IP_ADDRESS -> R.string.link_reason_ip_address
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.SHORTENER -> R.string.link_reason_shortener
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.PUNYCODE -> R.string.link_reason_punycode
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.USER_INFO -> R.string.link_reason_user_info
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.RISKY_TLD -> R.string.link_reason_risky_tld
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.MANY_SUBDOMAINS -> R.string.link_reason_many_subdomains
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.VERY_LONG -> R.string.link_reason_very_long
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.SCRIPT_SCHEME -> R.string.link_reason_script_scheme
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.BRAND_IMPERSONATION -> R.string.link_reason_brand_impersonation
+        com.qrbarcode.creator.usecase.LinkSafety.Reason.UNPARSEABLE -> R.string.link_reason_unparseable
     }
 
     private fun showButtonText() {
@@ -903,3 +948,6 @@ private val android.app.Dialog.text_view_date: android.widget.TextView get() = f
 private val android.app.Activity.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
 private val androidx.fragment.app.Fragment.toolbar: androidx.appcompat.widget.Toolbar get() = requireView().findViewById(com.qrbarcode.creator.R.id.toolbar)
 private val android.app.Dialog.toolbar: androidx.appcompat.widget.Toolbar get() = findViewById(com.qrbarcode.creator.R.id.toolbar)
+
+private val android.app.Activity.button_customize: com.qrbarcode.creator.feature.common.view.IconButton get() = findViewById(com.qrbarcode.creator.R.id.button_customize)
+private val android.app.Activity.text_view_link_safety: android.widget.TextView get() = findViewById(com.qrbarcode.creator.R.id.text_view_link_safety)

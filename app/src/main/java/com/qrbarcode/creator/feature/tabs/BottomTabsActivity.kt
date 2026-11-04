@@ -91,6 +91,7 @@ class BottomTabsActivity : BaseActivity(), BottomNavigationView.OnNavigationItem
             R.id.item_scan -> ScanBarcodeFromCameraFragment()
             R.id.item_create -> CreateBarcodeFragment()
             R.id.item_history -> BarcodeHistoryFragment()
+            R.id.item_insights -> com.qrbarcode.creator.feature.tabs.insights.InsightsFragment()
             R.id.item_settings -> SettingsFragment()
             else -> null
         }
